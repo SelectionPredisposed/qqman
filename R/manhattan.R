@@ -232,8 +232,9 @@ manhattan <- function(x, chr="CHR", bp="BP", p="P", snp="SNP",
                 topSNPs <- rbind(topSNPs, chrSNPs[1,])
                 
             }
-	    print(topSNPs)
-            textxy(topSNPs$pos, -log10(topSNPs$P), offset = 0.625, labs = topSNPs$SNP, cex = annotateTextSize, ...)
+	    if (!is.null(topSNPs)){
+            	textxy(topSNPs$pos, -log10(topSNPs$P), offset = 0.625, labs = topSNPs$SNP, cex = annotateTextSize, ...)
+	    }
         }
     }  
     par(xpd = FALSE)
